@@ -679,10 +679,10 @@ footer{background:#060606;border-top:1px solid #111;padding:3.5rem 5% 2rem;}
         CONNECT YOUR FORM:
         1. Go to formspree.io and create a free account
         2. Create a new form and copy your Form ID
-        3. Replace "YOUR_FORM_ID" below with your actual ID
+        3. Replace "xqeyzzdn" below with your actual ID
         4. Remove the onsubmit attribute and the demoSubmit function
       -->
-      <form id="quoteForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="demoSubmit(event,'qSuccess','qError')">
+      <form id="quoteForm" action="https://formspree.io/f/xqeyzzdn" method="POST" onsubmit="demoSubmit(event,'qSuccess','qError')">
         <div class="form-row">
           <div class="form-group"><label for="qfname">First Name *</label><input id="qfname" name="first_name" type="text" placeholder="John" required/></div>
           <div class="form-group"><label for="qlname">Last Name *</label><input id="qlname" name="last_name" type="text" placeholder="Smith" required/></div>
@@ -784,7 +784,7 @@ footer{background:#060606;border-top:1px solid #111;padding:3.5rem 5% 2rem;}
     </div>
     <div class="contact-form-card reveal">
       <div class="form-title">Send a Message</div>
-      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="demoSubmit(event,'cSuccess','cError')">
+      <form id="contactForm" action="https://formspree.io/f/xqeyzzdn" method="POST" onsubmit="demoSubmit(event,'cSuccess','cError')">
         <div class="form-row">
           <div class="form-group"><label for="cname">Name *</label><input id="cname" name="name" type="text" placeholder="Your name" required/></div>
           <div class="form-group"><label for="cphone">Phone</label><input id="cphone" name="phone" type="tel" placeholder="(801) 555-0100"/></div>
@@ -900,8 +900,8 @@ function demoSubmit(e,successId,errorId){
   btn.disabled=true;
   btn.textContent='Sending...';
   
-  // If Formspree is connected (action URL contains a real ID, not YOUR_FORM_ID), submit for real
-  if(!form.action.includes('YOUR_FORM_ID')){
+  // If Formspree is connected (action URL contains a real ID, not xqeyzzdn), submit for real
+  if(!form.action.includes('xqeyzzdn')){
     fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
       .then(r=>{
         if(r.ok){
