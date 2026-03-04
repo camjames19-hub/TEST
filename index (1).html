@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="JNB Excavation, LLC — Utah's trusted excavation company. Foundation digging, trenching, land clearing, grading, and demolition. Serving all of Utah. Free estimates." />
+<meta name="keywords" content="excavation Utah, foundation digging Utah, trenching Utah, land clearing Utah, grading Utah, demolition Utah, JNB Excavation" />
+<meta name="author" content="JNB Excavation, LLC" />
+
+<!-- Open Graph (for social sharing previews) -->
+<meta property="og:title" content="JNB Excavation, LLC | Utah's Premier Excavation Company" />
+<meta property="og:description" content="Professional excavation services across Utah — foundation digging, trenching, land clearing, grading & demolition. Free estimates." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourdomain.com" />
+
+<title>JNB Excavation, LLC | Utah's Premier Excavation Company</title>
+
+<style>
+  :root {
+    --orange: #F97316;
+    --orange-dark: #C2570F;
+    --black: #0D0D0D;
+    --dark: #161616;
+    --dark2: #1E1E1E;
+    --gray: #2A2A2A;
+    --white: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 72px;
+    background: rgba(13,13,13,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(249,115,22,0.15); transition: border-bottom-color 0.3s;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 48px; width: auto; filter: invert(1); }
+  .nav-logo-fallback { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-emblem {
+    width: 46px; height: 46px; background: var(--orange); border-radius: 5px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: 900; color: white; line-height: 1;
+  }
+  .nav-logo-emblem span:first-child { font-size: 1.1rem; }
+  .nav-logo-emblem span:last-child { font-size: 0.42rem; letter-spacing: 1px; opacity: 0.85; }
+  .nav-logo-words strong { font-size: 1.15rem; font-weight: 900; color: white; }
+  .nav-logo-words strong em { color: var(--orange); font-style: normal; }
+  .nav-logo-words small { display: block; font-size: 0.58rem; color: #777; text-transform: uppercase; letter-spacing: 2px; }
+
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: #ccc; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: white !important; padding: 9px 22px; border-radius: 4px; font-weight: 700 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--orange-dark) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+  .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--dark); padding: 1.5rem 5%; border-bottom: 2px solid var(--orange); z-index: 999; flex-direction: column; gap: 1rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: #ccc; text-decoration: none; font-size: 1.05rem; font-weight: 600; padding: 0.5rem 0; border-bottom: 1px solid #2a2a2a; }
+
+  /* ── HERO ── */
+  #hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 72px; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(13,13,13,0.96) 0%, rgba(13,13,13,0.82) 55%, rgba(249,115,22,0.06) 100%),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(249,115,22,0.022) 40px, rgba(249,115,22,0.022) 41px);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 920px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.35); color: var(--orange); padding: 6px 16px; border-radius: 100px; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
+
+  h1 { font-size: clamp(3rem, 7.5vw, 5.8rem); font-weight: 900; line-height: 1.0; letter-spacing: -2px; margin-bottom: 1.25rem; }
+  h1 em { color: var(--orange); font-style: normal; display: block; }
+  .hero-sub { font-size: clamp(1rem, 2vw, 1.18rem); color: #aaa; max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+
+  .btn-primary { background: var(--orange); color: white; padding: 15px 34px; border-radius: 5px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.5px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
+  .btn-outline { background: transparent; color: white; padding: 15px 34px; border-radius: 5px; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; border: 2px solid rgba(255,255,255,0.2); display: inline-block; }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+  .hero-stats { display: flex; gap: 3.5rem; flex-wrap: wrap; }
+  .stat-item { display: flex; flex-direction: column; gap: 4px; }
+  .stat-number { font-size: 2.4rem; font-weight: 900; color: var(--orange); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+  .hero-watermark { position: absolute; right: 3%; bottom: 5%; opacity: 0.04; font-size: clamp(8rem, 18vw, 16rem); font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -4px; pointer-events: none; user-select: none; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar { background: var(--dark2); border-top: 1px solid rgba(249,115,22,0.2); border-bottom: 1px solid rgba(249,115,22,0.2); padding: 1.1rem 5%; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 9px; font-size: 0.82rem; color: #bbb; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+  .trust-icon { color: var(--orange); }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 5%; }
+  .section-label { font-size: 0.72rem; font-weight: 800; color: var(--orange); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; }
+  h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.08; letter-spacing: -0.5px; margin-bottom: 1.25rem; }
+  .section-desc { color: #999; font-size: 1.02rem; line-height: 1.72; max-width: 580px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--dark); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 4rem; flex-wrap: wrap; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5px; background: rgba(249,115,22,0.07); border: 1px solid rgba(249,115,22,0.1); border-radius: 8px; overflow: hidden; }
+  .service-card { background: var(--dark2); padding: 2.5rem; transition: background 0.25s; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--orange); transform: scaleY(0); transition: transform 0.3s; transform-origin: bottom; }
+  .service-card:hover { background: #222; }
+  .service-card:hover::before { transform: scaleY(1); }
+  .service-icon { font-size: 2.4rem; margin-bottom: 1.2rem; display: block; }
+  .service-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.7rem; }
+  .service-card p { color: #999; font-size: 0.91rem; line-height: 1.65; }
+  .service-num { position: absolute; top: 1.25rem; right: 1.5rem; font-size: 3.5rem; font-weight: 900; color: rgba(249,115,22,0.06); line-height: 1; }
+
+  /* ── WHY US ── */
+  #why { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .why-box { background: var(--dark2); border: 1px solid rgba(249,115,22,0.15); border-radius: 10px; padding: 3rem; position: relative; }
+  .why-box::after { content: ''; position: absolute; bottom: -14px; right: -14px; width: 100%; height: 100%; border: 2px solid rgba(249,115,22,0.2); border-radius: 10px; z-index: -1; }
+  .why-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .why-stat h3 { font-size: 2.8rem; font-weight: 900; color: var(--orange); line-height: 1; }
+  .why-stat p { color: #777; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .why-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .why-list li { display: flex; align-items: flex-start; gap: 12px; color: #bbb; font-size: 0.94rem; line-height: 1.6; }
+  .why-list li::before { content: '→'; color: var(--orange); font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── GALLERY ── */
+  #projects { background: var(--dark); }
+  .gallery-header { text-align: center; margin-bottom: 4rem; }
+  .gallery-header .section-desc { margin: 0 auto; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 260px 260px; gap: 8px; border-radius: 8px; overflow: hidden; }
+  .gallery-item { background: var(--gray); position: relative; overflow: hidden; cursor: pointer; }
+  .gallery-item:first-child { grid-row: 1 / 3; }
+  .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; background: linear-gradient(135deg, #181818, #222); transition: transform 0.4s; }
+  /* To use real photos: replace .gallery-placeholder with an <img> tag inside .gallery-item */
+  .gallery-item:hover .gallery-placeholder { transform: scale(1.05); }
+  .gallery-placeholder-icon { font-size: 3rem; opacity: 0.25; }
+  .gallery-placeholder-text { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #555; }
+  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 1.5rem; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay-tag { background: var(--orange); color: white; padding: 5px 14px; border-radius: 3px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .gallery-note { text-align: center; margin-top: 2rem; color: #555; font-size: 0.82rem; font-style: italic; }
+
+  /* ── QUOTE ── */
+  #quote { background: var(--dark2); border-top: 3px solid var(--orange); }
+  .quote-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
+  .quote-perks { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .perk { display: flex; align-items: flex-start; gap: 14px; }
+  .perk-icon { width: 42px; height: 42px; flex-shrink: 0; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .perk-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
+  .perk-text p { color: #888; font-size: 0.84rem; }
+  .form-card { background: var(--dark); border: 1px solid rgba(249,115,22,0.15); border-radius: 10px; padding: 2.5rem; }
+  .form-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 1.75rem; padding-bottom: 1rem; border-bottom: 1px solid #2a2a2a; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 0.75rem; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: 0.8px; }
+  input, select, textarea { background: #111; border: 1px solid #2e2e2e; color: white; border-radius: 5px; padding: 11px 14px; font-size: 0.92rem; font-family: inherit; width: 100%; transition: border-color 0.2s; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(249,115,22,0.1); }
+  input::placeholder, textarea::placeholder { color: #444; }
+  select { cursor: pointer; } select option { background: #111; }
+  textarea { resize: vertical; min-height: 100px; }
+  .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.25rem; }
+  .checkbox-item { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.87rem; color: #bbb; font-weight: normal; text-transform: none; letter-spacing: 0; }
+  .checkbox-item input[type="checkbox"] { width: 15px; height: 15px; padding: 0; accent-color: var(--orange); cursor: pointer; }
+  .form-submit { width: 100%; margin-top: 1.5rem; background: var(--orange); color: white; border: none; padding: 15px; border-radius: 5px; font-size: 1rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .form-submit:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249,115,22,0.35); }
+  .form-note { text-align: center; margin-top: 1rem; color: #555; font-size: 0.76rem; }
+  .success-msg { display: none; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; border-radius: 6px; padding: 1rem; font-size: 0.9rem; margin-top: 1rem; text-align: center; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--black); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-block { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-block-icon { width: 48px; height: 48px; flex-shrink: 0; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.22); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+  .contact-block-text h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #777; margin-bottom: 4px; }
+  .contact-block-text a, .contact-block-text p { color: white; font-size: 1rem; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+  .contact-block-text a:hover { color: var(--orange); }
+  .service-area { background: var(--dark2); border: 1px solid rgba(249,115,22,0.1); border-radius: 8px; padding: 1.5rem; }
+  .service-area h4 { font-size: 0.75rem; color: var(--orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+  .area-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .area-tag { background: rgba(255,255,255,0.04); border: 1px solid #2e2e2e; padding: 5px 12px; border-radius: 100px; font-size: 0.76rem; color: #aaa; font-weight: 500; }
+  .contact-form-card { background: var(--dark2); border: 1px solid #252525; border-radius: 10px; padding: 2.5rem; }
+
+  /* ── FOOTER ── */
+  footer { background: #080808; border-top: 1px solid #181818; padding: 3rem 5% 2rem; }
+  .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-logo-block { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+  .footer-logo-block img { height: 56px; width: auto; filter: invert(1); opacity: 0.85; }
+  .footer-brand p { color: #555; font-size: 0.86rem; line-height: 1.7; max-width: 320px; }
+  .footer-col h4 { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--orange); margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col a { color: #666; text-decoration: none; font-size: 0.86rem; transition: color 0.2s; }
+  .footer-col a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid #181818; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { color: #444; font-size: 0.78rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; } .hamburger { display: flex; }
+    #why { grid-template-columns: 1fr; gap: 3rem; }
+    .quote-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: auto; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .hero-stats { gap: 2rem; } .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .trust-bar { gap: 1.5rem; } .checkbox-group { grid-template-columns: 1fr; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <!-- LOGO: Replace src with path to your logo file e.g. src="images/logo.jpg" -->
+    <img src="images/logo.jpg" alt="JNB Excavation LLC"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+    <div class="nav-logo-fallback" style="display:none;">
+      <div class="nav-logo-emblem"><span>JNB</span><span>EXCAVATION</span></div>
+      <div class="nav-logo-words">
+        <strong>JNB <em>Excavation</em></strong>
+        <small>Utah's Excavation Experts</small>
+      </div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">About</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#quote" onclick="toggleMenu()" style="color:var(--orange);font-weight:800;">Get a Free Quote →</a>
+</div>
+
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Utah's Excavation Experts</div>
+    <h1>Built on<br><em>Solid Ground.</em></h1>
+    <p class="hero-sub">JNB Excavation, LLC delivers professional foundation digging, trenching, land clearing, grading, and demolition across Utah — with the experience, equipment, and work ethic to get any job done right.</p>
+    <div class="hero-actions">
+      <a href="#quote" class="btn-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat-item"><span class="stat-number">400+</span><span class="stat-label">Jobs Completed</span></div>
+      <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Licensed & Insured</span></div>
+    </div>
+  </div>
+  <div class="hero-watermark" aria-hidden="true">JNB</div>
+</section>
+
+<!-- ═══════════════════════════════════════ TRUST BAR ═══════════════════════════════════════ -->
+<div class="trust-bar" role="list" aria-label="Key credentials">
+  <div class="trust-item" role="listitem"><span class="trust-icon" aria-hidden="true">✓</span> Fully Licensed & Insured</div>
+  <div class="trust-item" role="listitem"><span class="trust-icon" aria-hidden="true">✓</span> Free On-Site Estimates</div>
+  <div class="trust-item" role="listitem"><span class="trust-icon" aria-hidden="true">✓</span> Serving All of Utah</div>
+  <div class="trust-item" role="listitem"><span class="trust-icon" aria-hidden="true">✓</span> No Job Too Big or Small</div>
+  <div class="trust-item" role="listitem"><span class="trust-icon" aria-hidden="true">✓</span> Modern Equipment Fleet</div>
+</div>
+
+<!-- ═══════════════════════════════════════ SERVICES ═══════════════════════════════════════ -->
+<section id="services" aria-label="Our Services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2>Full-Service<br>Excavation Solutions</h2>
+    </div>
+    <p class="section-desc">From breaking ground to final grade — JNB handles every phase of your earthwork with precision, the right equipment, and years of Utah-specific experience.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-num" aria-hidden="true">01</span>
+      <span class="service-icon" aria-hidden="true">🏗️</span>
+      <h3>Foundation Digging</h3>
+      <p>Precision excavation for residential basements, commercial foundations, and structural footings. We dig to spec every time — your build starts on solid ground.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num" aria-hidden="true">02</span>
+      <span class="service-icon" aria-hidden="true">⛏️</span>
+      <h3>Trenching</h3>
+      <p>Clean, accurate trenches for water lines, sewer systems, electrical conduit, and gas lines. We coordinate with utility crews and keep your project moving.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num" aria-hidden="true">03</span>
+      <span class="service-icon" aria-hidden="true">🌲</span>
+      <h3>Land Clearing</h3>
+      <p>Tree removal, brush clearing, stump grinding, and full site clearing for new construction, agriculture, and development projects of any size.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num" aria-hidden="true">04</span>
+      <span class="service-icon" aria-hidden="true">📐</span>
+      <h3>Grading & Leveling</h3>
+      <p>Precise grading for drainage, road prep, pad preparation, and finish grading. We leave your site exactly how the plans call for — no shortcuts.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num" aria-hidden="true">05</span>
+      <span class="service-icon" aria-hidden="true">🔨</span>
+      <h3>Demolition</h3>
+      <p>Safe, efficient demolition of structures, concrete slabs, driveways, and foundations. Debris hauled away and site cleared — ready for what comes next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ WHY JNB ═══════════════════════════════════════ -->
+<section id="why" aria-label="Why Choose JNB">
+  <div class="why-visual reveal">
+    <div class="why-box">
+      <div class="why-stat-grid">
+        <div class="why-stat"><h3>15+</h3><p>Years in Business</p></div>
+        <div class="why-stat"><h3>400+</h3><p>Jobs Completed</p></div>
+        <div class="why-stat"><h3>100%</h3><p>Licensed & Insured</p></div>
+        <div class="why-stat"><h3>0</h3><p>Missed Deadlines</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="section-label">Why JNB</div>
+    <h2>Local Crew.<br>Utah Roots.<br>Real Results.</h2>
+    <p class="section-desc">JNB Excavation isn't a franchise — we're a Utah-based company that knows this land, these soils, and what it takes to deliver through every season and every job type.</p>
+    <ul class="why-list">
+      <li>Modern, well-maintained fleet of excavators, dozers, and haul trucks — right tool for every job</li>
+      <li>Experienced operators who treat your property with precision and respect</li>
+      <li>Transparent pricing — honest quotes, no surprise add-ons at the end</li>
+      <li>We show up on time and communicate clearly from first call to final grade</li>
+      <li>Fully licensed, bonded, and insured — protecting you on every project</li>
+      <li>From single-family lots to large commercial sites — we scale to fit your needs</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PROJECTS ═══════════════════════════════════════ -->
+<section id="projects" aria-label="Recent Projects">
+  <div class="gallery-header reveal">
+    <div class="section-label">Our Work</div>
+    <h2>Recent Projects</h2>
+    <p class="section-desc">A look at excavation, foundation, grading, and demolition work completed across Utah by the JNB team.</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <!--
+      TO ADD REAL PHOTOS: Replace each .gallery-placeholder div with:
+      <img src="images/project-1.jpg" alt="Foundation dig in Eagle Mountain Utah" style="width:100%;height:100%;object-fit:cover;" />
+    -->
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">🏗️</span><span class="gallery-placeholder-text">Foundation — Eagle Mountain, UT</span></div>
+      <div class="gallery-overlay"><span class="gallery-overlay-tag">Foundation Dig</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">📐</span><span class="gallery-placeholder-text">Grading — Utah County</span></div>
+      <div class="gallery-overlay"><span class="gallery-overlay-tag">Site Grading</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">🌲</span><span class="gallery-placeholder-text">Land Clearing — Spanish Fork</span></div>
+      <div class="gallery-overlay"><span class="gallery-overlay-tag">Land Clearing</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">⛏️</span><span class="gallery-placeholder-text">Trenching — Provo, UT</span></div>
+      <div class="gallery-overlay"><span class="gallery-overlay-tag">Utility Trenching</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder"><span class="gallery-placeholder-icon" aria-hidden="true">🔨</span><span class="gallery-placeholder-text">Demo — Salt Lake City</span></div>
+      <div class="gallery-overlay"><span class="gallery-overlay-tag">Demolition</span></div>
+    </div>
+  </div>
+  <p class="gallery-note">📸 Replace placeholders with real job site photos — biggest trust-builder on the site</p>
+</section>
+
+<!-- ═══════════════════════════════════════ QUOTE ═══════════════════════════════════════ -->
+<section id="quote" aria-label="Get a Free Quote">
+  <div class="quote-inner">
+    <div class="quote-left reveal">
+      <div class="section-label">Free Estimate</div>
+      <h2>Get Your Free Quote from JNB</h2>
+      <p class="section-desc">Tell us about your project and we'll respond within 24 hours with a clear, no-obligation estimate. No runaround, no hidden fees.</p>
+      <div class="quote-perks">
+        <div class="perk"><div class="perk-icon" aria-hidden="true">⚡</div><div class="perk-text"><h4>Fast Response</h4><p>We reply within 24 hours — often same day</p></div></div>
+        <div class="perk"><div class="perk-icon" aria-hidden="true">📋</div><div class="perk-text"><h4>Clear Estimates</h4><p>Detailed, line-item quotes with no surprises</p></div></div>
+        <div class="perk"><div class="perk-icon" aria-hidden="true">🤝</div><div class="perk-text"><h4>No Obligation</h4><p>Get a quote with zero pressure or commitment</p></div></div>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <div class="form-title">Request a Free Estimate</div>
+      <!--
+        FORM BACKEND: Sign up free at formspree.io, create a form,
+        then replace action="#" with action="https://formspree.io/f/YOUR_FORM_ID"
+        and add method="POST" to the form tag.
+      -->
+      <form id="quoteForm" onsubmit="submitForm(event,'quoteSuccess')">
+        <div class="form-row">
+          <div class="form-group"><label for="q-fname">First Name *</label><input id="q-fname" name="first_name" type="text" placeholder="John" required /></div>
+          <div class="form-group"><label for="q-lname">Last Name *</label><input id="q-lname" name="last_name" type="text" placeholder="Smith" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" placeholder="(801) 555-0100" required /></div>
+          <div class="form-group"><label for="q-email">Email</label><input id="q-email" name="email" type="email" placeholder="john@email.com" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label for="q-location">Project Location / City *</label><input id="q-location" name="location" type="text" placeholder="e.g. Eagle Mountain, Provo, St. George" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full">
+            <label>Services Needed</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item"><input type="checkbox" name="service" value="Foundation Digging" /> Foundation Digging</label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="Trenching" /> Trenching</label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="Land Clearing" /> Land Clearing</label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="Grading" /> Grading & Leveling</label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="Demolition" /> Demolition</label>
+              <label class="checkbox-item"><input type="checkbox" name="service" value="Not Sure" /> Not Sure Yet</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="q-timeline">Timeline</label>
+            <select id="q-timeline" name="timeline"><option value="">When do you need this done?</option><option>ASAP / Urgent</option><option>Within 1 Month</option><option>1–3 Months</option><option>3–6 Months</option><option>Just Planning Ahead</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label for="q-desc">Project Description</label><textarea id="q-desc" name="description" placeholder="Tell us about your project — lot size, type of work, access conditions, anything we should know..."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Send My Quote Request →</button>
+        <p class="form-note">🔒 Your info stays private. We'll only contact you about your project.</p>
+        <div class="success-msg" id="quoteSuccess" role="alert">✅ Got it! We'll be in touch within 24 hours with your estimate.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CONTACT ═══════════════════════════════════════ -->
+<section id="contact" aria-label="Contact Us">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div>
+        <div class="section-label">Get In Touch</div>
+        <h2>Talk to the JNB Team</h2>
+        <p class="section-desc">Have a question or ready to move forward? Reach out and a real person from our team will get back to you fast.</p>
+      </div>
+      <!-- UPDATE: Replace with real phone number -->
+      <div class="contact-block"><div class="contact-block-icon" aria-hidden="true">📞</div><div class="contact-block-text"><h4>Call or Text</h4><a href="tel:+18015550100">(801) 555-0100</a></div></div>
+      <!-- UPDATE: Replace with real email -->
+      <div class="contact-block"><div class="contact-block-icon" aria-hidden="true">✉️</div><div class="contact-block-text"><h4>Email Us</h4><a href="mailto:info@jnbexcavation.com">info@jnbexcavation.com</a></div></div>
+      <div class="contact-block"><div class="contact-block-icon" aria-hidden="true">🕐</div><div class="contact-block-text"><h4>Hours</h4><p>Mon–Fri: 7:00 AM – 6:00 PM<br>Sat: 8:00 AM – 2:00 PM</p></div></div>
+      <div class="service-area">
+        <h4>Service Areas</h4>
+        <div class="area-tags">
+          <span class="area-tag">Salt Lake City</span><span class="area-tag">Utah County</span><span class="area-tag">Provo</span>
+          <span class="area-tag">Eagle Mountain</span><span class="area-tag">St. George</span><span class="area-tag">Ogden</span>
+          <span class="area-tag">Lehi</span><span class="area-tag">Tooele</span><span class="area-tag">Spanish Fork</span>
+          <span class="area-tag">All of Utah</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-card reveal">
+      <div class="form-title">Send Us a Message</div>
+      <form id="contactForm" onsubmit="submitForm(event,'contactSuccess')">
+        <div class="form-row">
+          <div class="form-group"><label for="c-name">Name *</label><input id="c-name" name="name" type="text" placeholder="Your name" required /></div>
+          <div class="form-group"><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" placeholder="(801) 555-0100" /></div>
+        </div>
+        <div class="form-row"><div class="form-group full"><label for="c-email">Email *</label><input id="c-email" name="email" type="email" placeholder="your@email.com" required /></div></div>
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="c-subject">Subject</label>
+            <select id="c-subject" name="subject"><option value="">What's this about?</option><option>General Question</option><option>Request a Quote</option><option>Project Status</option><option>Employment</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="form-row"><div class="form-group full"><label for="c-msg">Message *</label><textarea id="c-msg" name="message" placeholder="How can JNB help you?" required></textarea></div></div>
+        <button type="submit" class="form-submit">Send Message →</button>
+        <div class="success-msg" id="contactSuccess" role="alert">✅ Message received! We'll be back in touch soon.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-block">
+        <!-- LOGO: Replace src with your logo path -->
+        <img src="images/logo.jpg" alt="JNB Excavation LLC"
+             onerror="this.outerHTML='<div style=\'display:flex;align-items:center;gap:8px\'><div style=\'width:50px;height:50px;background:var(--orange);border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;color:white;font-size:0.85rem\'>JNB</div><strong style=\'color:white;font-size:1.1rem\'>JNB <span style=\'color:var(--orange)\'>Excavation</span></strong></div>'" />
+      </div>
+      <p>Utah-based excavation company serving residential, commercial, and municipal clients statewide. We move earth, build foundations, and clear the way for what you're building next.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Foundation Digging</a></li>
+        <li><a href="#services">Trenching</a></li>
+        <li><a href="#services">Land Clearing</a></li>
+        <li><a href="#services">Grading & Leveling</a></li>
+        <li><a href="#services">Demolition</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>JNB Excavation</h4>
+      <ul>
+        <li><a href="#why">About Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#quote">Free Quote</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="tel:+18015550100">(801) 555-0100</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 JNB Excavation, LLC. All rights reserved. Utah, USA.</p>
+    <p>Licensed · Bonded · Insured</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+  // Nav border highlight on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').style.borderBottomColor =
+      window.scrollY > 60 ? 'rgba(249,115,22,0.3)' : 'rgba(249,115,22,0.15)';
+  }, { passive: true });
+
+  // Form submission handler (replace with real backend/Formspree for production)
+  function submitForm(e, successId) {
+    e.preventDefault();
+    const el = document.getElementById(successId);
+    el.style.display = 'block';
+    e.target.querySelectorAll('input,select,textarea,button').forEach(f => f.disabled = true);
+    setTimeout(() => {
+      el.style.display = 'none';
+      e.target.reset();
+      e.target.querySelectorAll('input,select,textarea,button').forEach(f => f.disabled = false);
+    }, 5000);
+  }
+</script>
+</body>
+</html>
